@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+	PIONEER PROFILE PAGE: Tim Berners-Lee
+	Each pioneer has their own page in the "pioneers" folder. All three pages use the same
+	layout; only the words, photo and links change.
+
+	This file sits one folder below the home page, so paths to shared files start with "../",
+	which means "go up one folder first." For example, "../css/styles.css" goes up out of the
+	"pioneers" folder, then into "css".
+-->
+
+<!-- <html> wraps the whole page. lang="en" tells browsers and screen readers it is in English. -->
+<html lang="en">
+<head>
+	<!-- The <head> holds information ABOUT the page: its title, its settings,
+	     and the other files it needs. Nothing in the head appears on the page itself. -->
+
+	<!-- Paths that start with "../" mean "go up one folder first" (see the note at the top of this file). -->
+
+	<!-- Use UTF-8 text encoding so every character displays correctly
+	     (curly quotes, dashes, accented letters, emoji). -->
+	<meta charset="utf-8">
+
+	<!-- Make the page fit the screen width on phones and tablets, instead of
+	     showing a tiny, zoomed-out desktop layout. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicons: the little icon in the browser tab. Browsers that understand
+	     SVG images use the first one; older browsers fall back to the .ico file. -->
+	<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+	<link rel="icon" href="../favicon.ico">
+
+	<!-- Records which tool built this page (Astro). Browsers ignore it. -->
+	<meta name="generator" content="Astro v7.4.5">
+
+	<!-- The text shown in the browser tab, in bookmarks, and in search results. -->
+	<title>Tim Berners-Lee | Web Pioneers</title>
+
+	<!-- Load the site's own CSS file. -->
+	<link rel="stylesheet" href="../css/styles.css">
+
+	<!-- Load Tailwind CSS from a CDN (a server that hosts shared files).
+	     Tailwind reads the class names on this page, like "text-4xl" or "bg-white",
+	     and writes the matching CSS for them while the page loads. -->
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.4"></script>
+
+	<!-- Load the site's own JavaScript file. "defer" means: download it now, but
+	     wait to run it until the browser has read the whole page, so every element
+	     the script looks for already exists. -->
+	<script src="../js/main.js" defer></script>
+</head>
+
+<!-- The <body> holds everything visitors actually see.
+     bg-gray-50 = a very light gray background.
+     text-gray-900 = almost-black text. Elements inside the body inherit this color. -->
+<body class="bg-gray-50 text-gray-900">
+	<!-- <main> holds the main content of the page. Each page should have exactly one. -->
+	<main>
+		<!-- <article> = a self-contained piece of content: here, the whole profile.
+		     max-w-3xl = no wider than 48rem (about 768px). Shorter lines are easier to read.
+		     mx-auto = centered.  p-6 = padding of 1.5rem. -->
+		<article class="max-w-3xl mx-auto p-6">
+			<!-- Paths are relative (this page is one folder deep) so they work from disk too -->
+
+			<!-- A link back to the home page. &larr; is an HTML entity that shows as a ← arrow. -->
+			<a class="text-blue-600 underline" href="../index.html">&larr; All pioneers</a>
+
+			<!-- The pioneer's photo. "alt" describes the image for screen readers.
+			     aspect-[4/3] = always 4 wide by 3 tall.  object-cover = crop to fill without stretching.
+			     object-top = keep the top of the photo.  rounded-lg = rounded corners.  shadow = drop shadow. -->
+			<img class="mt-6 w-full aspect-[4/3] object-cover object-top rounded-lg shadow" src="../images/pioneers/tim-berners-lee/image.jpg" alt="Tim Berners-Lee">
+
+			<!-- The page's main heading: the pioneer's name. -->
+			<h1 class="mt-6 text-4xl font-bold">Tim Berners-Lee</h1>
+
+			<!-- A one-sentence summary. text-gray-600 = medium gray, so it reads as secondary text. -->
+			<p class="mt-2 text-xl text-gray-600">Invented the World Wide Web at CERN in 1989, creating HTML, URLs and HTTP. Founded the W3C in 1994 and co-founded the Open Data Institute.</p>
+
+			<!-- THE BIOGRAPHY
+			     "bio" is not a Tailwind class. It's the site's own class, and css/styles.css uses it
+			     to style the headings, lists and links inside this box.
+			     text-lg = slightly larger text.  leading-relaxed = more space between lines.
+
+			     Tags used inside:
+			       <p>  a paragraph          <h2>  a section heading (smaller than the <h1>)
+			       <ul> a bulleted list      <li>  one item in that list
+			       <strong> important text, shown bold     <em> emphasized text, shown italic
+			       <a href="..."> a link to another page
+			     The id on each <h2> lets you link straight to that section, for example
+			     this-page.html#learn-more.
+			     &#39; and &quot; are HTML entities for the ' and " characters. -->
+			<div class="bio mt-6 text-lg leading-relaxed">
+				<article>
+					<p>Tim Berners-Lee was born in London in 1955 and studied physics at The Queen&#39;s College, Oxford. In March 1989, while working at CERN, he wrote a proposal for a system to help researchers share and link documents across computers. That proposal grew into the World Wide Web.</p>
+					<p>By the end of 1990 he had built the pieces that made it work: the first web server, the first browser (called WorldWideWeb, written on a NeXT computer), and the first website, which went live on 20 December 1990. He invited outside collaborators in August 1991, and CERN later made the technology freely available. It was never patented and never charged for, which is a big part of why the web spread so fast.</p>
+					<h2 id="keeping-the-web-open">Keeping the web open</h2>
+					<ul>
+						<li><strong>1994:</strong> Founded the World Wide Web Consortium (W3C) at MIT to develop open web standards.</li>
+						<li><strong>2004:</strong> Knighted for services to the global development of the Internet.</li>
+						<li><strong>2009:</strong> Launched the World Wide Web Foundation with Rosemary Leith.</li>
+						<li><strong>2012:</strong> Co-founded the Open Data Institute with Nigel Shadbolt. At the London Olympics opening ceremony he typed &quot;This is for everyone.&quot;</li>
+						<li><strong>2017:</strong> Received the 2016 ACM A. M. Turing Award, often called the Nobel Prize of computing.</li>
+						<li><strong>2018:</strong> Co-founded Inrupt to support Solid, a project that gives people control over their own data.</li>
+					</ul>
+					<p>In 2025 he published a memoir, <em>This Is for Everyone</em>, named after the Olympics message.</p>
+					<h2 id="learn-more">Learn more</h2>
+					<ul>
+						<li><a href="https://www.w3.org/History/1989/proposal.html">The original 1989 web proposal: <em>Information Management: A Proposal</em></a></li>
+						<li><a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium">World Wide Web Consortium (W3C)</a></li>
+						<li><a href="https://www.ted.com/speakers/tim_berners_lee">Tim Berners-Lee&#39;s TED talks</a></li>
+					</ul>
+					<p><em>Photo: Web Summit, CC BY 4.0, via <a href="https://commons.wikimedia.org/wiki/File:Tim_Berners-Lee_at_the_2025_Web_Summit_(Cropped).jpg">Wikimedia Commons</a>.</em></p>
+				</article>
+			</div>
+
+			<!-- A link to the pioneer's own website (or another main page about them). -->
+			<p class="mt-6"><a class="text-blue-600 underline" href="https://www.w3.org/People/Berners-Lee/">w3.org/People/Berners-Lee</a></p>
+		</article>
+	</main>
+
+	<!-- <footer> = the bottom of the page. text-center centers the text.
+	     &copy; is an HTML entity: a code that the browser shows as the © symbol. -->
+	<footer class="text-center"><p>&copy; 2026 Web Pioneers</p></footer>
+</body>
+</html>

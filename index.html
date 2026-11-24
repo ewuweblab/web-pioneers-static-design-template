@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+	HOME PAGE (index.html)
+	This page shows a card for each web pioneer, with a link to their profile page.
+	A browser opens index.html by default when you visit a folder, so it is the site's front door.
+
+	Most class names below (like "text-center" or "p-6") are Tailwind CSS utility classes.
+	Each one does a single small job, and you combine them to style an element.
+	Tailwind sizes are based on 0.25rem steps: p-4 = 1rem, p-6 = 1.5rem, mb-8 = 2rem.
+	(1rem is the browser's base font size, usually 16px.)
+-->
+
+<!-- <html> wraps the whole page. lang="en" tells browsers and screen readers it is in English. -->
+<html lang="en">
+<head>
+	<!-- The <head> holds information ABOUT the page: its title, its settings,
+	     and the other files it needs. Nothing in the head appears on the page itself. -->
+
+	<!-- Paths that start with "./" mean "starting from this page's folder." Paths like these are called relative paths. -->
+
+	<!-- Use UTF-8 text encoding so every character displays correctly
+	     (curly quotes, dashes, accented letters, emoji). -->
+	<meta charset="utf-8">
+
+	<!-- Make the page fit the screen width on phones and tablets, instead of
+	     showing a tiny, zoomed-out desktop layout. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicons: the little icon in the browser tab. Browsers that understand
+	     SVG images use the first one; older browsers fall back to the .ico file. -->
+	<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+	<link rel="icon" href="./favicon.ico">
+
+	<!-- Records which tool built this page (Astro). Browsers ignore it. -->
+	<meta name="generator" content="Astro v7.4.5">
+
+	<!-- The text shown in the browser tab, in bookmarks, and in search results. -->
+	<title>Web Pioneers</title>
+
+	<!-- Load the site's own CSS file. -->
+	<link rel="stylesheet" href="./css/styles.css">
+
+	<!-- Load Tailwind CSS from a CDN (a server that hosts shared files).
+	     Tailwind reads the class names on this page, like "text-4xl" or "bg-white",
+	     and writes the matching CSS for them while the page loads. -->
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.4"></script>
+
+	<!-- Load the site's own JavaScript file. "defer" means: download it now, but
+	     wait to run it until the browser has read the whole page, so every element
+	     the script looks for already exists. -->
+	<script src="./js/main.js" defer></script>
+</head>
+
+<!-- The <body> holds everything visitors actually see.
+     bg-gray-50 = a very light gray background.
+     text-gray-900 = almost-black text. Elements inside the body inherit this color. -->
+<body class="bg-gray-50 text-gray-900">
+	<!-- <main> holds the main content of the page. Each page should have exactly one. -->
+	<main>
+		<!-- A wrapper that keeps the content from getting too wide.
+		     max-w-5xl = no wider than 64rem (about 1024px).
+		     mx-auto = equal automatic margins left and right, which centers it.
+		     p-6 = padding of 1.5rem on all sides. -->
+		<div class="max-w-5xl mx-auto p-6">
+			<!-- <h1> is the page's main heading. Use one <h1> per page.
+			     text-4xl = very large text.  font-bold = bold.  mb-8 = margin below.  text-center = centered. -->
+			<h1 class="text-4xl font-bold mb-8 text-center">Web Pioneers</h1>
+
+			<!-- A grid that lays the cards out in columns.
+			     gap-6 = space between cards.
+			     On small screens there is 1 column. sm:grid-cols-2 = 2 columns once the screen is
+			     at least 640px wide. lg:grid-cols-3 = 3 columns at 1024px and wider.
+			     Prefixes like sm: and lg: are how Tailwind makes a layout "responsive". -->
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				<!-- CARD 1. Each card is an <article>: a self-contained piece of content.
+				     bg-white = white background.  rounded-lg = rounded corners.  shadow = drop shadow.
+				     overflow-hidden = clips the photo so it doesn't poke out past the rounded corners. -->
+				<article class="bg-white rounded-lg shadow overflow-hidden">
+					<!-- The photo. "alt" describes the image for screen readers, and it is shown
+					     if the image fails to load.
+					     w-full = full width of the card.
+					     aspect-[4/3] = always 4 wide by 3 tall. Square brackets give Tailwind a custom value.
+					     object-cover = fill that box and crop off any extra, without stretching the photo.
+					     object-top = keep the top of the photo (the face) when cropping. -->
+					<img class="w-full aspect-[4/3] object-cover object-top" src="images/pioneers/tim-berners-lee/image.jpg" alt="Tim Berners-Lee">
+
+					<!-- p-4 = padding (inner space) of 1rem on all sides. -->
+					<div class="p-4">
+						<!-- text-xl = larger text.  font-semibold = fairly bold. -->
+						<h2 class="text-xl font-semibold">Tim Berners-Lee</h2>
+
+						<!-- mt-2 = a small margin on top.  text-sm = smaller text. -->
+						<p class="mt-2 text-sm">Invented the World Wide Web at CERN in 1989, creating HTML, URLs and HTTP. Founded the W3C in 1994 and co-founded the Open Data Institute.</p>
+
+						<!-- A link to the full profile page.
+						     inline-block lets the mt-3 top margin work on a link.
+						     The <span class="sr-only"> text is hidden on screen but read aloud by screen
+						     readers, so they hear "Read Profile of Tim Berners-Lee" instead of three
+						     identical "Read Profile" links. -->
+						<a class="mt-3 inline-block text-blue-600 underline" href="pioneers/tim-berners-lee.html">Read Profile<span class="sr-only"> of Tim Berners-Lee</span></a>
+					</div>
+				</article>
+
+				<!-- CARD 2: same pattern as card 1. -->
+				<article class="bg-white rounded-lg shadow overflow-hidden">
+					<img class="w-full aspect-[4/3] object-cover object-top" src="images/pioneers/molly-holzschlag/image.jpg" alt="Molly Holzschlag">
+					<div class="p-4">
+						<h2 class="text-xl font-semibold">Molly Holzschlag</h2>
+						<p class="mt-2 text-sm">Wrote or co-authored 35 books on web design, including The Zen of CSS Design. Led the Web Standards Project (2004–2006) and championed accessibility and education. (1963–2023)</p>
+						<a class="mt-3 inline-block text-blue-600 underline" href="pioneers/molly-holzschlag.html">Read Profile<span class="sr-only"> of Molly Holzschlag</span></a>
+					</div>
+				</article>
+
+				<!-- CARD 3: same pattern as card 1. -->
+				<article class="bg-white rounded-lg shadow overflow-hidden">
+					<img class="w-full aspect-[4/3] object-cover object-top" src="images/pioneers/jeffrey-zeldman/image.jpg" alt="Jeffrey Zeldman">
+					<div class="p-4">
+						<h2 class="text-xl font-semibold">Jeffrey Zeldman</h2>
+						<p class="mt-2 text-sm">Co-founded A List Apart and the Web Standards Project. Wrote Designing with Web Standards and co-founded the An Event Apart conference.</p>
+						<a class="mt-3 inline-block text-blue-600 underline" href="pioneers/jeffrey-zeldman.html">Read Profile<span class="sr-only"> of Jeffrey Zeldman</span></a>
+					</div>
+				</article>
+			</div>
+		</div>
+	</main>
+
+	<!-- <footer> = the bottom of the page. text-center centers the text.
+	     &copy; is an HTML entity: a code that the browser shows as the © symbol. -->
+	<footer class="text-center"><p>&copy; 2026 Web Pioneers</p></footer>
+</body>
+</html>
